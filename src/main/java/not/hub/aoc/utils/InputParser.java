@@ -15,4 +15,12 @@ public class InputParser {
         }
     }
 
+    public static List<String> getStringList(String path) {
+        try {
+            return Files.lines(Paths.get(path)).collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new IllegalStateException("Unable to load input file " + path + " - " + e.getMessage(), e);
+        }
+    }
+
 }
