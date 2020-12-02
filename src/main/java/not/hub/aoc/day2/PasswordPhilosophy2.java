@@ -7,10 +7,10 @@ import java.util.regex.Matcher;
 
 import static not.hub.aoc.day2.PasswordPhilosophy1.pattern;
 
-public class PasswordPhilosophy2 extends Solver<StringBuffer, Integer> {
+public class PasswordPhilosophy2 extends Solver<String, Integer> {
 
     @Override
-    public Integer solve(StringBuffer input) {
+    public Integer solve(String input) {
 
         Logger.info("Day 2: Password Philosophy - Part 2");
 

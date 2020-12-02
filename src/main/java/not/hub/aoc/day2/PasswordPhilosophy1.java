@@ -6,12 +6,12 @@ import org.tinylog.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PasswordPhilosophy1 extends Solver<StringBuffer, Integer> {
+public class PasswordPhilosophy1 extends Solver<String, Integer> {
 
     protected static final Pattern pattern = Pattern.compile("^(\\d+)-(\\d+)\\s(\\w): (\\w+)$", Pattern.MULTILINE);
 
     @Override
-    public Integer solve(StringBuffer input) {
+    public Integer solve(String input) {
 
         Logger.info("Day 2: Password Philosophy - Part 1");
 

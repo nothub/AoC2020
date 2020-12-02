@@ -6,11 +6,9 @@ import not.hub.aoc.utils.InputParser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 class Day2Test {
 
-    private static final StringBuffer input = InputParser.getStringBuffer("inputs/day2");
+    private static final String input = InputParser.getString("inputs/day2");
 
     @Test
     void part1() {
