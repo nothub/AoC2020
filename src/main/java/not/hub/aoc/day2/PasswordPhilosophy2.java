@@ -20,12 +20,8 @@ public class PasswordPhilosophy2 extends Solver<String, Integer> {
         while (matcher.find()) {
             char chr = matcher.group(3).charAt(0);
             String pass = matcher.group(4);
-            char a = pass.charAt(Integer.parseInt(matcher.group(1)) - 1);
-            char b = pass.charAt(Integer.parseInt(matcher.group(2)) - 1);
-            if (chr == a || chr == b) {
-                if (a != b) {
-                    numValid++;
-                }
+            if (chr == pass.charAt(Integer.parseInt(matcher.group(1)) - 1) ^ chr == pass.charAt(Integer.parseInt(matcher.group(2)) - 1)) {
+                numValid++;
             }
         }
 
