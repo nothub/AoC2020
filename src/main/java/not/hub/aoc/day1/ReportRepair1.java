@@ -1,15 +1,14 @@
 package not.hub.aoc.day1;
 
-import not.hub.aoc.utils.InputParser;
+import not.hub.aoc.Solver;
 import org.tinylog.Logger;
 
 import java.util.List;
 
-public class ReportRepairFirst {
+public class ReportRepair1 extends Solver<List<Integer>, Integer> {
 
-    private static final List<Integer> input = InputParser.getIntegerList("inputs/day1");
-
-    public static void main(String[] args) {
+    @Override
+    public Integer solve(List<Integer> input) {
 
         Logger.info("Day 1: Report Repair - Part 1");
 
@@ -20,10 +19,12 @@ public class ReportRepairFirst {
                 }
                 if (input.get(i) + input.get(j) == 2020) {
                     Logger.info("Result: " + input.get(i) * input.get(j));
-                    return;
+                    return input.get(i) * input.get(j);
                 }
             }
         }
+
+        return 0;
 
     }
 
