@@ -1,19 +1,18 @@
 package not.hub.aoc.day2;
 
-import not.hub.aoc.utils.InputParser;
+import not.hub.aoc.Solver;
 import org.tinylog.Logger;
 
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PasswordPhilosophy1 {
+public class PasswordPhilosophy1 extends Solver<List<String>, Integer> {
 
-    private static final List<String> input = InputParser.getStringList("inputs/day2");
+    protected static final Pattern pattern = Pattern.compile("(\\d+)-(\\d+)\\s(\\w): (\\w+)");
 
-    private static final Pattern pattern = Pattern.compile("(\\d+)-(\\d+)\\s(\\w): (\\w+)");
-
-    public static void main(String[] args) {
+    @Override
+    public Integer solve(List<String> input) {
 
         Logger.info("Day 2: Password Philosophy - Part 1");
 
@@ -32,6 +31,7 @@ public class PasswordPhilosophy1 {
         }
 
         Logger.info("Result: " + numValid);
+        return numValid;
 
     }
 
