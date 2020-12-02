@@ -23,4 +23,12 @@ public class InputParser {
         }
     }
 
+    public static StringBuffer getStringBuffer(String path) {
+        try {
+            return new StringBuffer(Files.readString(Paths.get(path)));
+        } catch (Exception e) {
+            throw new IllegalStateException("Unable to load input file " + path + " - " + e.getMessage(), e);
+        }
+    }
+
 }

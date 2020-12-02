@@ -10,7 +10,7 @@ import java.util.List;
 
 class Day2Test {
 
-    private static final List<String> input = InputParser.getStringList("inputs/day2");
+    private static final StringBuffer input = InputParser.getStringBuffer("inputs/day2");
 
     @Test
     void part1() {

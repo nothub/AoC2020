@@ -3,34 +3,30 @@ package not.hub.aoc.day2;
 import not.hub.aoc.Solver;
 import org.tinylog.Logger;
 
-import java.util.List;
 import java.util.regex.Matcher;
 
 import static not.hub.aoc.day2.PasswordPhilosophy1.pattern;
 
-public class PasswordPhilosophy2 extends Solver<List<String>, Integer> {
+public class PasswordPhilosophy2 extends Solver<StringBuffer, Integer> {
 
     @Override
-    public Integer solve(List<String> input) {
+    public Integer solve(StringBuffer input) {
 
         Logger.info("Day 2: Password Philosophy - Part 2");
 
         int numValid = 0;
 
-        for (String line : input) {
-            Matcher matcher = pattern.matcher(line);
-            if (matcher.matches()) {
-                char chr = matcher.group(3).charAt(0);
-                String pass = matcher.group(4);
-                char a = pass.charAt(Integer.parseInt(matcher.group(1)) - 1);
-                char b = pass.charAt(Integer.parseInt(matcher.group(2)) - 1);
-                if (a == chr || b == chr) {
-                    if (a != b) {
-                        numValid++;
-                    }
+        Matcher matcher = pattern.matcher(input);
+        while (matcher.find()) {
+            char chr = matcher.group(3).charAt(0);
+            String pass = matcher.group(4);
+            char a = pass.charAt(Integer.parseInt(matcher.group(1)) - 1);
+            char b = pass.charAt(Integer.parseInt(matcher.group(2)) - 1);
+            if (chr == a || chr == b) {
+                if (a != b) {
+                    numValid++;
                 }
             }
-
         }
 
         Logger.info("Result: " + numValid);
