@@ -7,7 +7,6 @@ import java.util.List;
 
 public class TobogganTrajectory1 extends Solver<List<String>, Integer> {
 
-
     @Override
     public Integer solve(List<String> input) {
 

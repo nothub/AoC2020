@@ -4,7 +4,6 @@ import not.hub.aoc.Solver;
 import org.tinylog.Logger;
 
 import java.util.AbstractMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -12,19 +11,18 @@ import java.util.stream.IntStream;
 
 public class TobogganTrajectory2 extends Solver<List<String>, Integer> {
 
-
     @Override
     public Integer solve(List<String> input) {
 
         Logger.info("Day 3: Toboggan Trajectory - Part 2");
 
-        List<Map.Entry<Integer, Integer>> slopes = new ArrayList<>() {{
-            add(new AbstractMap.SimpleEntry<>(1, 1));
-            add(new AbstractMap.SimpleEntry<>(3, 1));
-            add(new AbstractMap.SimpleEntry<>(5, 1));
-            add(new AbstractMap.SimpleEntry<>(7, 1));
-            add(new AbstractMap.SimpleEntry<>(1, 2));
-        }};
+        List<Map.Entry<Integer, Integer>> slopes = List.of(
+                new AbstractMap.SimpleEntry<>(1, 1),
+                new AbstractMap.SimpleEntry<>(3, 1),
+                new AbstractMap.SimpleEntry<>(5, 1),
+                new AbstractMap.SimpleEntry<>(7, 1),
+                new AbstractMap.SimpleEntry<>(1, 2)
+        );
 
         int totalNumTrees = 1;
 
