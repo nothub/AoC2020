@@ -7,23 +7,25 @@ import java.util.List;
 
 public class TobogganTrajectory1 extends Solver<List<String>, Integer> {
 
+    protected static final char TREE = '#';
+
     @Override
     public Integer solve(List<String> input) {
 
         Logger.info("Day 3: Toboggan Trajectory - Part 1");
 
-        int numTrees = 0;
-        int offSet = 0;
+        int trees = 0;
+        int offset = 0;
 
         for (String line : input) {
-            if (line.charAt(offSet % line.length()) == '#') {
-                numTrees++;
+            if (line.charAt(offset % line.length()) == TREE) {
+                trees++;
             }
-            offSet = offSet + 3;
+            offset = offset + 3;
         }
 
-        Logger.info("Result: " + numTrees);
-        return numTrees;
+        Logger.info("Result: " + trees);
+        return trees;
 
     }
 
