@@ -8,7 +8,13 @@ import org.junit.jupiter.api.Test;
 
 class Day2Test {
 
+    private static final String example = InputParser.getString("inputs/day2_example");
     private static final String input = InputParser.getString("inputs/day2");
+
+    @Test
+    void example() {
+        Assertions.assertEquals(2, new PasswordPhilosophy1().solve(example));
+    }
 
     @Test
     void part1() {
