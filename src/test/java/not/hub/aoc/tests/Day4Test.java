@@ -23,7 +23,7 @@ class Day4Test {
 
     @Test
     void part2() {
-        Assertions.assertEquals(206, new PassportProcessing2().solve(input));
+        Assertions.assertEquals(123, new PassportProcessing2().solve(input));
     }
 
 }
