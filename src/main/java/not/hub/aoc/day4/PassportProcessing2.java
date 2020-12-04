@@ -12,7 +12,9 @@ public class PassportProcessing2 extends Solver<String, Integer> {
     @Override
     public Integer solve(String input) {
         Logger.info("Day 4: Passport Processing - Part 2");
-        return (int) parsePassports(input).stream().filter(this::checkValidity).count();
+        int passports = (int) parsePassports(input).stream().filter(this::checkValidity).count();
+        Logger.info("Result: " + passports);
+        return passports;
     }
 
     private boolean checkValidity(Map<String, String> passport) {

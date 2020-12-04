@@ -10,15 +10,9 @@ import java.util.Map;
 
 public class PassportProcessing1 extends Solver<String, Integer> {
 
-    static final String linebreak = "\\r?\\n|\\r";
+    private static final String linebreak = "\\r?\\n|\\r";
 
-    @Override
-    public Integer solve(String input) {
-        Logger.info("Day 4: Passport Processing - Part 1");
-        return (int) parsePassports(input).stream().filter(this::checkValidity).count();
-    }
-
-    static List<Map<String, String>> parsePassports(String input) {
+    protected static List<Map<String, String>> parsePassports(String input) {
         List<Map<String, String>> passports = new ArrayList<>();
         for (String raw : input.split("((" + linebreak + ")\\d*)+(" + linebreak + ")")) {
             Map<String, String> passport = new HashMap<>();
@@ -28,6 +22,14 @@ public class PassportProcessing1 extends Solver<String, Integer> {
             }
             passports.add(passport);
         }
+        return passports;
+    }
+
+    @Override
+    public Integer solve(String input) {
+        Logger.info("Day 4: Passport Processing - Part 1");
+        int passports = (int) parsePassports(input).stream().filter(this::checkValidity).count();
+        Logger.info("Result: " + passports);
         return passports;
     }
 
