@@ -8,6 +8,8 @@ import java.util.Map;
 
 public class PassportProcessing1 extends Solver<String, Integer> {
 
+    static final String linebreak = "\\r?\\n|\\r";
+
     @Override
     public Integer solve(String input) {
 
@@ -15,11 +17,11 @@ public class PassportProcessing1 extends Solver<String, Integer> {
 
         int numValid = 0;
 
-        for (String raw : input.split("((\\r?\\n|\\r)\\d*)+(\\r?\\n|\\r)")) {
+        for (String raw : input.split("((" + linebreak + ")\\d*)+(" + linebreak + ")")) {
 
             Map<String, String> passport = new HashMap<>();
 
-            for (String pair : raw.replaceAll("\\r?\\n|\\r", " ").split(" ")) {
+            for (String pair : raw.replaceAll(linebreak, " ").split(" ")) {
                 String[] data = pair.split(":");
                 passport.put(data[0], data[1]);
             }

@@ -6,20 +6,22 @@ import org.tinylog.Logger;
 import java.util.HashMap;
 import java.util.Map;
 
+import static not.hub.aoc.day4.PassportProcessing1.linebreak;
+
 public class PassportProcessing2 extends Solver<String, Integer> {
 
     @Override
     public Integer solve(String input) {
 
-        Logger.info("Day 4: Passport Processing - Part 1");
+        Logger.info("Day 4: Passport Processing - Part 2");
 
         int numValid = 0;
 
-        for (String raw : input.split("((\\r?\\n|\\r)\\d*)+(\\r?\\n|\\r)")) {
+        for (String raw : input.split("((" + linebreak + ")\\d*)+(" + linebreak + ")")) {
 
             Map<String, String> passport = new HashMap<>();
 
-            for (String pair : raw.replaceAll("\\r?\\n|\\r", " ").split(" ")) {
+            for (String pair : raw.replaceAll(linebreak, " ").split(" ")) {
                 String[] data = pair.split(":");
                 passport.put(data[0], data[1]);
             }
