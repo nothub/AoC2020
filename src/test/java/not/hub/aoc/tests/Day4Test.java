@@ -1,6 +1,7 @@
 package not.hub.aoc.tests;
 
 import not.hub.aoc.day4.PassportProcessing1;
+import not.hub.aoc.day4.PassportProcessing2;
 import not.hub.aoc.utils.InputParser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,11 @@ class Day4Test {
     @Test
     void part1() {
         Assertions.assertEquals(206, new PassportProcessing1().solve(input));
+    }
+
+    @Test
+    void part2() {
+        Assertions.assertEquals(206, new PassportProcessing2().solve(input));
     }
 
 }
