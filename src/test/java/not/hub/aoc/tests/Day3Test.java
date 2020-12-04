@@ -10,7 +10,13 @@ import java.util.List;
 
 class Day3Test {
 
+    private static final List<String> example = InputParser.getStringList("inputs/day3_example");
     private static final List<String> input = InputParser.getStringList("inputs/day3");
+
+    @Test
+    void example() {
+        Assertions.assertEquals(7, new TobogganTrajectory1().solve(example));
+    }
 
     @Test
     void part1() {

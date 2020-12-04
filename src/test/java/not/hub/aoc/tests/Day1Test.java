@@ -10,7 +10,13 @@ import java.util.List;
 
 class Day1Test {
 
+    private static final List<Integer> example = InputParser.getIntegerList("inputs/day1_example");
     private static final List<Integer> input = InputParser.getIntegerList("inputs/day1");
+
+    @Test
+    void example() {
+        Assertions.assertEquals(514579, new ReportRepair1().solve(example));
+    }
 
     @Test
     void part1() {
