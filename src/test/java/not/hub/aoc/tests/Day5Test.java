@@ -1,6 +1,7 @@
 package not.hub.aoc.tests;
 
 import not.hub.aoc.day5.BinaryBoarding1;
+import not.hub.aoc.day5.BinaryBoarding2;
 import not.hub.aoc.utils.InputParser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -22,9 +23,9 @@ class Day5Test {
         Assertions.assertEquals(848, new BinaryBoarding1().solve(input));
     }
 
-    //@Test
-    //void part2() {
-    //    Assertions.assertEquals(0, new BinaryBoarding2().solve(input));
-    //}
+    @Test
+    void part2() {
+        Assertions.assertEquals(682, new BinaryBoarding2().solve(input));
+    }
 
 }

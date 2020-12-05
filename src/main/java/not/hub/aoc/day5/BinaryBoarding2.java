@@ -3,28 +3,18 @@ package not.hub.aoc.day5;
 import not.hub.aoc.Solver;
 import org.tinylog.Logger;
 
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class BinaryBoarding1 extends Solver<List<String>, Integer> {
+import static not.hub.aoc.day5.BinaryBoarding1.partition;
 
-    protected static List<Integer> partition(List<Integer> list, char c) {
-
-        if (c == 'F' || c == 'L') {
-            return list.subList(0, list.size() / 2);
-        } else if (c == 'B' || c == 'R') {
-            return list.subList(list.size() / 2, list.size());
-        }
-
-        throw new IllegalStateException();
-
-    }
+public class BinaryBoarding2 extends Solver<List<String>, Integer> {
 
     @Override
     public Integer solve(List<String> input) {
 
-        int biggestId = 0;
+        Set<Integer> seatIds = new HashSet<>();
 
         for (String seatcode : input) {
 
@@ -41,14 +31,17 @@ public class BinaryBoarding1 extends Solver<List<String>, Integer> {
 
             int seatId = rows.get(0) * 8 + columns.get(0);
 
-            if (seatId > biggestId) {
-                biggestId = seatId;
-            }
+            seatIds.add(seatId);
 
         }
 
-        Logger.info("Result: " + biggestId);
-        return biggestId;
+        int ownId = seatIds.stream().filter(
+                id -> !seatIds.contains(id + 1) && seatIds.contains(id + 2)
+        ).findAny().orElseThrow();
+        ownId++;
+
+        Logger.info("Result: " + ownId);
+        return ownId;
 
     }
 
