@@ -3,7 +3,9 @@ package not.hub.aoc.day5;
 import not.hub.aoc.Solver;
 import org.tinylog.Logger;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -21,10 +23,9 @@ public class BinaryBoarding1 extends Solver<List<String>, Integer> {
 
     }
 
-    @Override
-    public Integer solve(List<String> input) {
+    protected static Set<Integer> parse(List<String> input) {
 
-        int biggestId = 0;
+        Set<Integer> seats = new HashSet<>();
 
         for (String seatcode : input) {
 
@@ -41,12 +42,18 @@ public class BinaryBoarding1 extends Solver<List<String>, Integer> {
 
             int seatId = rows.get(0) * 8 + columns.get(0);
 
-            if (seatId > biggestId) {
-                biggestId = seatId;
-            }
+            seats.add(seatId);
 
         }
 
+        return seats;
+
+    }
+
+    @Override
+    public Integer solve(List<String> input) {
+
+        int biggestId = parse(input).stream().max(Integer::compareTo).orElseThrow();
         Logger.info("Result: " + biggestId);
         return biggestId;
 
