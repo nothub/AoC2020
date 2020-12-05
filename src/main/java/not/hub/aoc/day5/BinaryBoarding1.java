@@ -27,12 +27,12 @@ public class BinaryBoarding1 extends Solver<List<String>, Integer> {
 
         Set<Integer> seats = new HashSet<>();
 
-        for (String seatcode : input) {
+        input.forEach(seat -> {
 
-            List<Integer> rows = IntStream.range(0, 128).boxed().collect(Collectors.toList());
-            List<Integer> columns = IntStream.range(0, 8).boxed().collect(Collectors.toList());
+            var rows = IntStream.range(0, 128).boxed().collect(Collectors.toList());
+            var columns = IntStream.range(0, 8).boxed().collect(Collectors.toList());
 
-            for (char c : seatcode.toCharArray()) {
+            for (char c : seat.toCharArray()) {
                 if (c == 'F' || c == 'B') {
                     rows = partition(rows, c);
                 } else if (c == 'L' || c == 'R') {
@@ -40,11 +40,9 @@ public class BinaryBoarding1 extends Solver<List<String>, Integer> {
                 }
             }
 
-            int seatId = rows.get(0) * 8 + columns.get(0);
+            seats.add(rows.get(0) * 8 + columns.get(0));
 
-            seats.add(seatId);
-
-        }
+        });
 
         return seats;
 
@@ -53,7 +51,7 @@ public class BinaryBoarding1 extends Solver<List<String>, Integer> {
     @Override
     public Integer solve(List<String> input) {
 
-        int biggestId = parse(input).stream().max(Integer::compareTo).orElseThrow();
+        var biggestId = parse(input).stream().max(Integer::compareTo).orElseThrow();
         Logger.info("Result: " + biggestId);
         return biggestId;
 

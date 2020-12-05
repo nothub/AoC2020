@@ -14,9 +14,9 @@ public class BinaryBoarding2 extends Solver<List<String>, Integer> {
     @Override
     public Integer solve(List<String> input) {
 
-        Set<Integer> seatIds = parse(input);
+        var seatIds = parse(input);
 
-        int ownId = IntStream.range(0, seatIds.stream().max(Integer::compareTo).orElseThrow()).boxed().filter(
+        var ownId = IntStream.range(0, seatIds.stream().max(Integer::compareTo).orElseThrow()).filter(
                 id -> !seatIds.contains(id) && seatIds.contains(id - 1) && seatIds.contains(id + 1)
         ).findAny().orElseThrow();
 
