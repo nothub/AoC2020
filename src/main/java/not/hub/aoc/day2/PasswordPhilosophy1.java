@@ -15,12 +15,12 @@ public class PasswordPhilosophy1 extends Solver<String, Integer> {
 
         Logger.info("Day 2: Password Philosophy - Part 1");
 
-        int numValid = 0;
+        var numValid = 0;
 
-        Matcher matcher = pattern.matcher(input);
+        var matcher = pattern.matcher(input);
         while (matcher.find()) {
-            String pass = matcher.group(4);
-            long count = pass.chars().filter(c -> c == matcher.group(3).charAt(0)).count();
+            var pass = matcher.group(4);
+            var count = pass.chars().filter(c -> c == matcher.group(3).charAt(0)).count();
             if (count >= Integer.parseInt(matcher.group(1)) && count <= Integer.parseInt(matcher.group(2))) {
                 numValid++;
             }

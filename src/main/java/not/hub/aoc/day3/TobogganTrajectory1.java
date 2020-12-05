@@ -14,10 +14,10 @@ public class TobogganTrajectory1 extends Solver<List<String>, Integer> {
 
         Logger.info("Day 3: Toboggan Trajectory - Part 1");
 
-        int trees = 0;
-        int offset = 0;
+        var trees = 0;
+        var offset = 0;
 
-        for (String line : input) {
+        for (var line : input) {
             if (line.charAt(offset % line.length()) == TREE) {
                 trees++;
             }

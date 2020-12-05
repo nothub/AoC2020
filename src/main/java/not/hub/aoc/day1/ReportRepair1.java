@@ -12,8 +12,8 @@ public class ReportRepair1 extends Solver<List<Integer>, Integer> {
 
         Logger.info("Day 1: Report Repair - Part 1");
 
-        for (int i = 0; i < input.size(); i++) {
-            for (int j = 0; j < input.size(); j++) {
+        for (var i = 0; i < input.size(); i++) {
+            for (var j = 0; j < input.size(); j++) {
                 if (i == j) {
                     continue;
                 }
@@ -24,7 +24,7 @@ public class ReportRepair1 extends Solver<List<Integer>, Integer> {
             }
         }
 
-        return 0;
+        throw new IllegalStateException();
 
     }
 

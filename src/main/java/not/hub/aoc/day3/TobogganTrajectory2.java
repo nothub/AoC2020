@@ -18,9 +18,9 @@ public class TobogganTrajectory2 extends Solver<List<String>, Integer> {
 
         Logger.info("Day 3: Toboggan Trajectory - Part 2");
 
-        int totalNumTrees = 1;
+        var totalNumTrees = 1;
 
-        for (Map.Entry<Integer, Integer> slope : List.of(
+        for (var slope : List.of(
                 new AbstractMap.SimpleEntry<>(1, 1),
                 new AbstractMap.SimpleEntry<>(3, 1),
                 new AbstractMap.SimpleEntry<>(5, 1),
@@ -36,10 +36,10 @@ public class TobogganTrajectory2 extends Solver<List<String>, Integer> {
 
     private int calcNumTrees(List<String> input, int offsetH, int offsetV) {
 
-        int trees = 0;
-        int offset = 0;
+        var trees = 0;
+        var offset = 0;
 
-        for (String line : IntStream.range(0, input.size()).filter(i -> i % offsetV == 0).mapToObj(input::get).collect(Collectors.toList())) {
+        for (var line : IntStream.range(0, input.size()).filter(i -> i % offsetV == 0).mapToObj(input::get).collect(Collectors.toList())) {
             if (line.charAt(offset % line.length()) == TREE) {
                 trees++;
             }
