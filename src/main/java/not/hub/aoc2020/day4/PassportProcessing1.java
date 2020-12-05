@@ -1,7 +1,6 @@
 package not.hub.aoc2020.day4;
 
 import not.hub.aoc2020.Solver;
-import org.tinylog.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,10 +26,7 @@ public class PassportProcessing1 extends Solver<String, Integer> {
 
     @Override
     public Integer solve(String input) {
-        Logger.info("Day 4: Passport Processing - Part 1");
-        var passports = (int) parsePassports(input).stream().filter(this::checkValidity).count();
-        Logger.info("Result: " + passports);
-        return passports;
+        return (int) parsePassports(input).stream().filter(this::checkValidity).count();
     }
 
     private boolean checkValidity(Map<String, String> passport) {

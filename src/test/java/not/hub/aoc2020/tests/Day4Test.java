@@ -5,6 +5,7 @@ import not.hub.aoc2020.day4.PassportProcessing2;
 import not.hub.aoc2020.utils.InputParser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.tinylog.Logger;
 
 class Day4Test {
 
@@ -13,17 +14,26 @@ class Day4Test {
 
     @Test
     void example() {
-        Assertions.assertEquals(2, new PassportProcessing1().solve(example));
+        Logger.info("Day 4: Passport Processing - Example");
+        int result = new PassportProcessing1().solve(example);
+        Logger.info("Result: " + result);
+        Assertions.assertEquals(2, result);
     }
 
     @Test
     void part1() {
-        Assertions.assertEquals(206, new PassportProcessing1().solve(input));
+        Logger.info("Day 4: Passport Processing - Part 1");
+        int result = new PassportProcessing1().solve(input);
+        Logger.info("Result: " + result);
+        Assertions.assertEquals(206, result);
     }
 
     @Test
     void part2() {
-        Assertions.assertEquals(123, new PassportProcessing2().solve(input));
+        Logger.info("Day 4: Passport Processing - Part 2");
+        int result = new PassportProcessing2().solve(input);
+        Logger.info("Result: " + result);
+        Assertions.assertEquals(123, result);
     }
 
 }

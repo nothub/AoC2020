@@ -1,7 +1,6 @@
 package not.hub.aoc2020.day2;
 
 import not.hub.aoc2020.Solver;
-import org.tinylog.Logger;
 
 import java.util.regex.Pattern;
 
@@ -11,8 +10,6 @@ public class PasswordPhilosophy1 extends Solver<String, Integer> {
 
     @Override
     public Integer solve(String input) {
-
-        Logger.info("Day 2: Password Philosophy - Part 1");
 
         var numValid = 0;
 
@@ -25,7 +22,6 @@ public class PasswordPhilosophy1 extends Solver<String, Integer> {
             }
         }
 
-        Logger.info("Result: " + numValid);
         return numValid;
 
     }

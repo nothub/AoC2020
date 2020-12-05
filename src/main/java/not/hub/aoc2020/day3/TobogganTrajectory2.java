@@ -1,7 +1,6 @@
 package not.hub.aoc2020.day3;
 
 import not.hub.aoc2020.Solver;
-import org.tinylog.Logger;
 
 import java.util.AbstractMap;
 import java.util.List;
@@ -15,8 +14,6 @@ public class TobogganTrajectory2 extends Solver<List<String>, Integer> {
     @Override
     public Integer solve(List<String> input) {
 
-        Logger.info("Day 3: Toboggan Trajectory - Part 2");
-
         var totalNumTrees = 1;
 
         for (var slope : List.of(
@@ -28,7 +25,6 @@ public class TobogganTrajectory2 extends Solver<List<String>, Integer> {
             totalNumTrees *= calcNumTrees(input, slope.getKey(), slope.getValue());
         }
 
-        Logger.info("Result: " + totalNumTrees);
         return totalNumTrees;
 
     }
