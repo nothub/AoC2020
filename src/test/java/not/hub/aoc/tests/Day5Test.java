@@ -14,7 +14,7 @@ class Day5Test {
 
     @Test
     void example() {
-        Assertions.assertEquals(567, new BinaryBoarding1().solve(example));
+        Assertions.assertEquals(820, new BinaryBoarding1().solve(example));
     }
 
     @Test
