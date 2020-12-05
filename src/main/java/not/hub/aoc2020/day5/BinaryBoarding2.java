@@ -12,17 +12,12 @@ public class BinaryBoarding2 extends Solver<List<String>, Integer> {
 
     @Override
     public Integer solve(List<String> input) {
-
         var seatIds = parse(input);
-
         var ownId = IntStream.range(0, seatIds.stream().max(Integer::compareTo).orElseThrow()).filter(
                 id -> !seatIds.contains(id) && seatIds.contains(id - 1) && seatIds.contains(id + 1)
         ).findAny().orElseThrow();
-
         Logger.info("Result: " + ownId);
         return ownId;
-
     }
-
 
 }
