@@ -1,4 +1,4 @@
-package not.hub.aoc;
+package not.hub.aoc2020;
 
 public abstract class Solver<I, O> {
 

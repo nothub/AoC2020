@@ -1,15 +1,14 @@
-package not.hub.aoc.day3;
+package not.hub.aoc2020.day3;
 
-import not.hub.aoc.Solver;
+import not.hub.aoc2020.Solver;
 import org.tinylog.Logger;
 
 import java.util.AbstractMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static not.hub.aoc.day3.TobogganTrajectory1.TREE;
+import static not.hub.aoc2020.day3.TobogganTrajectory1.TREE;
 
 public class TobogganTrajectory2 extends Solver<List<String>, Integer> {
 

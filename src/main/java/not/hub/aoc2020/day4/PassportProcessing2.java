@@ -1,11 +1,11 @@
-package not.hub.aoc.day4;
+package not.hub.aoc2020.day4;
 
-import not.hub.aoc.Solver;
+import not.hub.aoc2020.Solver;
 import org.tinylog.Logger;
 
 import java.util.Map;
 
-import static not.hub.aoc.day4.PassportProcessing1.parsePassports;
+import static not.hub.aoc2020.day4.PassportProcessing1.parsePassports;
 
 public class PassportProcessing2 extends Solver<String, Integer> {
 

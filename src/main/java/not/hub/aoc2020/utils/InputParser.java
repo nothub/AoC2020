@@ -1,4 +1,4 @@
-package not.hub.aoc.utils;
+package not.hub.aoc2020.utils;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

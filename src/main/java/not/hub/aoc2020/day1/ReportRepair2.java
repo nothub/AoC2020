@@ -1,6 +1,6 @@
-package not.hub.aoc.day1;
+package not.hub.aoc2020.day1;
 
-import not.hub.aoc.Solver;
+import not.hub.aoc2020.Solver;
 import org.tinylog.Logger;
 
 import java.util.List;

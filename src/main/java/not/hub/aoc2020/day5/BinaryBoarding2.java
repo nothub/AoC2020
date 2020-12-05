@@ -1,13 +1,12 @@
-package not.hub.aoc.day5;
+package not.hub.aoc2020.day5;
 
-import not.hub.aoc.Solver;
+import not.hub.aoc2020.Solver;
 import org.tinylog.Logger;
 
 import java.util.List;
-import java.util.Set;
 import java.util.stream.IntStream;
 
-import static not.hub.aoc.day5.BinaryBoarding1.parse;
+import static not.hub.aoc2020.day5.BinaryBoarding1.parse;
 
 public class BinaryBoarding2 extends Solver<List<String>, Integer> {
 

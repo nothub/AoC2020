@@ -1,9 +1,8 @@
-package not.hub.aoc.day2;
+package not.hub.aoc2020.day2;
 
-import not.hub.aoc.Solver;
+import not.hub.aoc2020.Solver;
 import org.tinylog.Logger;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PasswordPhilosophy1 extends Solver<String, Integer> {

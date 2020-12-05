@@ -1,8 +1,8 @@
-package not.hub.aoc.tests;
+package not.hub.aoc2020.tests;
 
-import not.hub.aoc.day3.TobogganTrajectory1;
-import not.hub.aoc.day3.TobogganTrajectory2;
-import not.hub.aoc.utils.InputParser;
+import not.hub.aoc2020.day3.TobogganTrajectory1;
+import not.hub.aoc2020.day3.TobogganTrajectory2;
+import not.hub.aoc2020.utils.InputParser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
