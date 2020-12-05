@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class BinaryBoarding1 extends Solver<String, Integer> {
+public class BinaryBoarding1 extends Solver<List<String>, Integer> {
 
     private static List<Integer> partition(List<Integer> list, char c) {
 
@@ -22,23 +22,33 @@ public class BinaryBoarding1 extends Solver<String, Integer> {
     }
 
     @Override
-    public Integer solve(String input) {
+    public Integer solve(List<String> input) {
 
-        List<Integer> rows = IntStream.range(0, 128).boxed().collect(Collectors.toList());
-        List<Integer> columns = IntStream.range(0, 8).boxed().collect(Collectors.toList());
+        int biggestId = 0;
 
-        for (char c : input.toCharArray()) {
-            if (c == 'F' || c == 'B') {
-                rows = partition(rows, c);
-            } else if (c == 'L' || c == 'R') {
-                columns = partition(columns, c);
+        for (String seatcode : input) {
+
+            List<Integer> rows = IntStream.range(0, 128).boxed().collect(Collectors.toList());
+            List<Integer> columns = IntStream.range(0, 8).boxed().collect(Collectors.toList());
+
+            for (char c : seatcode.toCharArray()) {
+                if (c == 'F' || c == 'B') {
+                    rows = partition(rows, c);
+                } else if (c == 'L' || c == 'R') {
+                    columns = partition(columns, c);
+                }
             }
+
+            int seatId = rows.get(0) * 8 + columns.get(0);
+
+            if (seatId > biggestId) {
+                biggestId = seatId;
+            }
+
         }
 
-        int seatId = rows.get(0) * 8 + columns.get(0);
-        Logger.info("Result: " + seatId);
-
-        return seatId;
+        Logger.info("Result: " + biggestId);
+        return biggestId;
 
     }
 
