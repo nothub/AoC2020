@@ -19,7 +19,7 @@ class Day4Test {
     void example() {
         int result = new PassportProcessing1().solve(example);
         Assertions.assertEquals(2, result);
-        Logger.info("Result: " + result);
+        Logger.info("Example: " + result);
     }
 
     @Test
@@ -27,7 +27,7 @@ class Day4Test {
     void part1() {
         int result = new PassportProcessing1().solve(input);
         Assertions.assertEquals(206, result);
-        Logger.info("Result: " + result);
+        Logger.info("Part 1: " + result);
     }
 
     @Test
@@ -35,7 +35,7 @@ class Day4Test {
     void part2() {
         int result = new PassportProcessing2().solve(input);
         Assertions.assertEquals(123, result);
-        Logger.info("Result: " + result);
+        Logger.info("Part 2: " + result);
     }
 
 }

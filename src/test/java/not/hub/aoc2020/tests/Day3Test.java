@@ -21,7 +21,7 @@ class Day3Test {
     void example() {
         int result = new TobogganTrajectory1().solve(example);
         Assertions.assertEquals(7, result);
-        Logger.info("Result: " + result);
+        Logger.info("Example: " + result);
     }
 
     @Test
@@ -29,7 +29,7 @@ class Day3Test {
     void part1() {
         int result = new TobogganTrajectory1().solve(input);
         Assertions.assertEquals(254, result);
-        Logger.info("Result: " + result);
+        Logger.info("Part 1: " + result);
     }
 
     @Test
@@ -37,7 +37,7 @@ class Day3Test {
     void part2() {
         int result = new TobogganTrajectory2().solve(input);
         Assertions.assertEquals(1666768320, result);
-        Logger.info("Result: " + result);
+        Logger.info("Part 2: " + result);
     }
 
 }

@@ -21,7 +21,7 @@ class Day5Test {
     void example() {
         int result = new BinaryBoarding1().solve(example);
         Assertions.assertEquals(820, result);
-        Logger.info("Result: " + result);
+        Logger.info("Example: " + result);
     }
 
     @Test
@@ -29,7 +29,7 @@ class Day5Test {
     void part1() {
         int result = new BinaryBoarding1().solve(input);
         Assertions.assertEquals(848, result);
-        Logger.info("Result: " + result);
+        Logger.info("Part 1: " + result);
     }
 
     @Test
@@ -37,7 +37,7 @@ class Day5Test {
     void part2() {
         int result = new BinaryBoarding2().solve(input);
         Assertions.assertEquals(682, result);
-        Logger.info("Result: " + result);
+        Logger.info("Part 2: " + result);
     }
 
 }

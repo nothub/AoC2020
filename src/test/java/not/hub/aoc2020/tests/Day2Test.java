@@ -19,7 +19,7 @@ class Day2Test {
     void example() {
         int result = new PasswordPhilosophy1().solve(example);
         Assertions.assertEquals(2, result);
-        Logger.info("Result: " + result);
+        Logger.info("Example: " + result);
     }
 
     @Test
@@ -27,7 +27,7 @@ class Day2Test {
     void part1() {
         int result = new PasswordPhilosophy1().solve(input);
         Assertions.assertEquals(638, result);
-        Logger.info("Result: " + result);
+        Logger.info("Part 1: " + result);
     }
 
     @Test
@@ -35,7 +35,7 @@ class Day2Test {
     void part2() {
         int result = new PasswordPhilosophy2().solve(input);
         Assertions.assertEquals(699, result);
-        Logger.info("Result: " + result);
+        Logger.info("Part 2: " + result);
     }
 
 }
