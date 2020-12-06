@@ -11,11 +11,10 @@ public class CustomCustoms1 extends Solver<String, Integer> {
 
     @Override
     public Integer solve(String input) {
-        int result = 0;
-        for (String group : Arrays.stream(input.replaceAll(linebreak, "\n").strip().split("\n{2,}")).collect(Collectors.toList())) {
-            result = result + group.replaceAll(linebreak, "").chars().mapToObj(c -> (char) c).collect(Collectors.toSet()).size();
-        }
-        return result;
+        return Arrays.stream(input.replaceAll(linebreak, "\n").strip().split("\n{2,}")
+        ).collect(Collectors.toList()).stream().mapToInt(group ->
+                group.replaceAll(linebreak, "").chars().mapToObj(c -> (char) c).collect(Collectors.toSet()).size()
+        ).sum();
     }
 
 }
