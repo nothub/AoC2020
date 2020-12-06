@@ -7,15 +7,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static not.hub.aoc2020.Globals.LINESEPRE;
+import static not.hub.aoc2020.Globals.LB;
 
 public class PassportProcessing1 extends Solver<String, Integer> {
 
     protected static List<Map<String, String>> parsePassports(String input) {
         List<Map<String, String>> passports = new ArrayList<>();
-        for (var raw : input.split("((" + LINESEPRE + ")\\d*)+(" + LINESEPRE + ")")) {
+        for (var raw : input.split("((" + LB + ")\\d*)+(" + LB + ")")) {
             Map<String, String> passport = new HashMap<>();
-            for (var pair : raw.replaceAll(LINESEPRE, " ").split(" ")) {
+            for (var pair : raw.replaceAll(LB, " ").split(" ")) {
                 var data = pair.split(":");
                 passport.put(data[0], data[1]);
             }
