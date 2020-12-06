@@ -1,6 +1,7 @@
 package not.hub.aoc2020.tests;
 
 import not.hub.aoc2020.day6.CustomCustoms1;
+import not.hub.aoc2020.day6.CustomCustoms2;
 import not.hub.aoc2020.utils.InputParser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -29,12 +30,12 @@ class Day6Test {
         Logger.info("Part 1: " + result);
     }
 
-    //@Test
-    //@DisplayName("Part 2")
-    //void part2() {
-    //int result = new CustomCustoms2().solve(input);
-    //Assertions.assertEquals(682, result);
-    //Logger.info("Part 2: " + result);
-    //}
+    @Test
+    @DisplayName("Part 2")
+    void part2() {
+        int result = new CustomCustoms2().solve(input);
+        Assertions.assertEquals(3489, result);
+        Logger.info("Part 2: " + result);
+    }
 
 }
