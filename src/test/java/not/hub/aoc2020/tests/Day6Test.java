@@ -11,7 +11,7 @@ import org.tinylog.Logger;
 class Day6Test {
 
     private static final String example = InputParser.getString("inputs/day6_example");
-    //private static final String input = InputParser.getString("inputs/day6");
+    private static final String input = InputParser.getString("inputs/day6");
 
     @Test
     @DisplayName("Example")
@@ -21,13 +21,13 @@ class Day6Test {
         Logger.info("Example: " + result);
     }
 
-    //@Test
-    //@DisplayName("Part 1")
-    //void part1() {
-//        int result = new CustomCustoms1().solve(input);
-//        Assertions.assertEquals(848, result);
-//        Logger.info("Part 1: " + result);
-//    }
+    @Test
+    @DisplayName("Part 1")
+    void part1() {
+        int result = new CustomCustoms1().solve(input);
+        Assertions.assertEquals(6768, result);
+        Logger.info("Part 1: " + result);
+    }
 
     //@Test
     //@DisplayName("Part 2")
