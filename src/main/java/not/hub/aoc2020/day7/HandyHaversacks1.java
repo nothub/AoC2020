@@ -15,25 +15,16 @@ public class HandyHaversacks1 extends Solver<String, Long> {
 
     protected static final Pattern pattern = Pattern.compile("^(.+) contain (.+)\\.$", Pattern.MULTILINE);
 
-    @Override
-    public Long solve(String input) {
-        var bags = parse(input);
-        return bags.keySet().stream().filter(name -> containsGold(name, bags)).count();
-    }
-
-    private boolean containsGold(String bag, Map<String, Map<String, Integer>> bags) {
+    protected static boolean containsGold(String bag, Map<String, Map<String, Integer>> bags) {
         return bag.equals("shiny gold bag") || bags.get(bag).entrySet().stream().anyMatch(inner -> containsGold(inner.getKey(), bags));
     }
 
-    private Map<String, Map<String, Integer>> parse(String input) {
+    protected static Map<String, Map<String, Integer>> parse(String input) {
         Map<String, Map<String, Integer>> bags = new HashMap<>();
         Arrays.stream(input.replaceAll("bags", "bag").split(LB)).forEach(raw -> {
             Matcher matcher = pattern.matcher(raw);
             while (matcher.find()) {
                 String name = matcher.group(1);
-                if (name.equals("shiny gold bag")) {
-                    return;
-                }
                 if (!bags.containsKey(name)) {
                     bags.put(name, new HashMap<>());
                 }
@@ -45,6 +36,12 @@ public class HandyHaversacks1 extends Solver<String, Long> {
             }
         });
         return bags;
+    }
+
+    @Override
+    public Long solve(String input) {
+        var bags = parse(input);
+        return bags.keySet().stream().filter(name -> !name.equals("shiny gold bag")).filter(name -> containsGold(name, bags)).count();
     }
 
 }
