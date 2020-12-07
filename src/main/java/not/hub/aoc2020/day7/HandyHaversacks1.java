@@ -14,11 +14,11 @@ import static not.hub.aoc2020.Globals.LB;
 public class HandyHaversacks1 extends Solver<String, Long> {
 
     protected static final Pattern pattern = Pattern.compile("^(.+) contain (.+)\\.$", Pattern.MULTILINE);
-    protected static final String shiny_gold = "shiny gold bag";
-    protected static final String empty = "no other bag";
+    protected static final String shinyGoldBag = "shiny gold bag";
+    protected static final String emptyBag = "no other bag";
 
     protected static boolean containsGold(String bag, Map<String, Map<String, Integer>> bags) {
-        return bag.equals(shiny_gold) || bags.get(bag).entrySet().stream().anyMatch(inner ->
+        return bag.equals(shinyGoldBag) || bags.get(bag).entrySet().stream().anyMatch(inner ->
                 containsGold(inner.getKey(), bags));
     }
 
@@ -28,14 +28,12 @@ public class HandyHaversacks1 extends Solver<String, Long> {
             Matcher matcher = pattern.matcher(raw);
             while (matcher.find()) {
                 String name = matcher.group(1);
-                if (!bags.containsKey(name)) {
-                    bags.put(name, new HashMap<>());
-                }
-                Set.of(matcher.group(2).split(", ")).forEach(rule -> {
-                    if (!rule.equals(empty)) {
-                        bags.get(name).put(rule.substring(2), Integer.parseInt(rule.substring(0, 1)));
-                    }
-                });
+                bags.computeIfAbsent(name, v -> new HashMap<>());
+                Set.of(matcher.group(2).split(", ")).stream().filter(rule ->
+                        !rule.equals(emptyBag)
+                ).forEach(rule ->
+                        bags.get(name).put(rule.substring(2), Integer.parseInt(rule.substring(0, 1)))
+                );
             }
         });
         return bags;
@@ -45,7 +43,7 @@ public class HandyHaversacks1 extends Solver<String, Long> {
     public Long solve(String input) {
         var bags = parse(input);
         return bags.keySet().stream().filter(name ->
-                !name.equals(shiny_gold)
+                !name.equals(shinyGoldBag)
         ).filter(name -> containsGold(name, bags)).count();
     }
 

@@ -16,11 +16,11 @@ class Day7Test {
     private static final String input = InputParser.getString("inputs/day7");
 
     @Test
-    @DisplayName("Part 1 Example 1")
-    void part1_example1() {
+    @DisplayName("Part 1 Example")
+    void part1_example() {
         long result = new HandyHaversacks1().solve(example1);
         Assertions.assertEquals(4, result);
-        Logger.info("Part 1 Example 1: " + result);
+        Logger.info("Part 1 Example: " + result);
     }
 
     @Test
