@@ -19,7 +19,8 @@ public class HandyHaversacks1 extends Solver<String, Long> {
 
     protected static boolean containsGold(String bag, Map<String, Map<String, Integer>> bags) {
         return bag.equals(shinyGoldBag) || bags.get(bag).entrySet().stream().anyMatch(inner ->
-                containsGold(inner.getKey(), bags));
+                containsGold(inner.getKey(), bags)
+        );
     }
 
     protected static Map<String, Map<String, Integer>> parse(String input) {
@@ -28,7 +29,7 @@ public class HandyHaversacks1 extends Solver<String, Long> {
             Matcher matcher = pattern.matcher(raw);
             while (matcher.find()) {
                 String name = matcher.group(1);
-                bags.computeIfAbsent(name, v -> new HashMap<>());
+                bags.put(name, new HashMap<>());
                 Set.of(matcher.group(2).split(", ")).stream().filter(rule ->
                         !rule.equals(emptyBag)
                 ).forEach(rule ->
