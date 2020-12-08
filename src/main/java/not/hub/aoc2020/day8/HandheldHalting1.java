@@ -24,11 +24,7 @@ public class HandheldHalting1 extends Solver<List<String>, Integer> {
         ).collect(Collectors.toList());
         int head = 0;
         int accu = 0;
-        int halt = trackables.size();
         while (head < trackables.size()) {
-            if (halt <= 0) {
-                throw new IllegalStateException("Maximum iterations reached.");
-            }
             var trackable = trackables.get(head);
             if (trackable.getValue()) {
                 return new Result(accu, false);
@@ -48,7 +44,6 @@ public class HandheldHalting1 extends Solver<List<String>, Integer> {
                     head++;
                     break;
             }
-            halt--;
         }
         return new Result(accu, true);
     }

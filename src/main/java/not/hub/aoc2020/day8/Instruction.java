@@ -14,11 +14,6 @@ class Instruction {
         return new Instruction(op, val);
     }
 
-    @Override
-    public String toString() {
-        return "Instruction{" + "op=" + op + ", val=" + val + '}';
-    }
-
     enum Operation {
         ACC, JMP, NOP
     }
