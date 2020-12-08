@@ -2,16 +2,16 @@ package not.hub.aoc2020.day8;
 
 class Instruction {
 
-    final Operation operation;
-    final int value;
+    final Operation op;
+    final int val;
 
-    public Instruction(Operation operation, int value) {
-        this.operation = operation;
-        this.value = value;
+    public Instruction(Operation op, int val) {
+        this.op = op;
+        this.val = val;
     }
 
     public Instruction copy() {
-        return new Instruction(operation, value);
+        return new Instruction(op, val);
     }
 
     enum Operation {

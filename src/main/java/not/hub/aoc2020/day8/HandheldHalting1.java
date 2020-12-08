@@ -26,17 +26,19 @@ public class HandheldHalting1 extends Solver<List<String>, Integer> {
             } else {
                 trackable.visited = true;
             }
-            switch (trackable.instruction.operation) {
+            switch (trackable.ins.op) {
                 case ACC:
-                    accu += trackable.instruction.value;
+                    accu += trackable.ins.val;
                     head++;
                     break;
                 case JMP:
-                    head += trackable.instruction.value;
+                    head += trackable.ins.val;
                     break;
                 case NOP:
                     head++;
                     break;
+                default:
+                    throw new IllegalArgumentException("Unknown operation: " + trackable.ins.op);
             }
         }
         return new Result(accu, true);
@@ -44,7 +46,7 @@ public class HandheldHalting1 extends Solver<List<String>, Integer> {
 
     @Override
     public Integer solve(List<String> input) {
-        return execute(parse(input)).value;
+        return execute(parse(input)).val;
     }
 
 }

@@ -4,6 +4,7 @@ import not.hub.aoc2020.Solver;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static not.hub.aoc2020.day8.HandheldHalting1.execute;
 import static not.hub.aoc2020.day8.HandheldHalting1.parse;
@@ -12,29 +13,32 @@ import static not.hub.aoc2020.day8.Instruction.Operation.*;
 public class HandheldHalting2 extends Solver<List<String>, Integer> {
 
     private static Integer bruteforce(List<Instruction> broken) {
-        for (int i = 0; i < broken.size(); i++) {
-            if (broken.get(i).operation.equals(ACC)) {
-                continue;
-            }
-            var program = broken.stream().map(Instruction::copy).collect(Collectors.toList());
-            program.set(i, flip(program.get(i)));
-            Result result = execute(program);
-            if (result.halted) {
-                return result.value;
-            }
-        }
-        throw new IllegalStateException("No result found");
+        return IntStream.range(0, broken.size()).filter(i ->
+                !broken.get(i).op.equals(ACC)
+        ).boxed().map(i ->
+                execute(flip(broken, i))
+        ).filter(result ->
+                result.halted
+        ).mapToInt(result ->
+                result.val
+        ).findAny().orElseThrow();
     }
 
-    private static Instruction flip(Instruction ins) {
-        switch (ins.operation) {
+    private static List<Instruction> flip(List<Instruction> broken, int index) {
+        var program = broken.stream().map(Instruction::copy).collect(Collectors.toList());
+        var ins = program.get(index);
+        switch (ins.op) {
             case JMP:
-                return new Instruction(NOP, ins.value);
+                ins = new Instruction(NOP, ins.val);
+                break;
             case NOP:
-                return new Instruction(JMP, ins.value);
+                ins = new Instruction(JMP, ins.val);
+                break;
             default:
-                throw new IllegalArgumentException("Instruction has ACC operation");
+                throw new IllegalArgumentException("Unknown operation: " + ins.op);
         }
+        program.set(index, ins);
+        return program;
     }
 
     @Override

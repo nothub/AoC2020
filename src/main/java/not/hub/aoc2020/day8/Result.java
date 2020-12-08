@@ -2,11 +2,11 @@ package not.hub.aoc2020.day8;
 
 class Result {
 
-    final int value;
+    final int val;
     final boolean halted;
 
-    public Result(int value, boolean halted) {
-        this.value = value;
+    public Result(int val, boolean halted) {
+        this.val = val;
         this.halted = halted;
     }
 
