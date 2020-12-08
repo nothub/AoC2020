@@ -35,7 +35,7 @@ public class HandheldHalting2 extends Solver<List<String>, Integer> {
                 ins = new Instruction(JMP, ins.val);
                 break;
             default:
-                throw new IllegalArgumentException("Unknown operation: " + ins.op);
+                throw new IllegalArgumentException("Unable to flip operation: " + ins.op);
         }
         program.set(index, ins);
         return program;
