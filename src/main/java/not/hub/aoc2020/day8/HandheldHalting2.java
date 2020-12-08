@@ -11,14 +11,9 @@ import static not.hub.aoc2020.day8.Instruction.Operation.*;
 
 public class HandheldHalting2 extends Solver<List<String>, Integer> {
 
-    @Override
-    public Integer solve(List<String> input) {
-        return bruteforce(parse(input));
-    }
-
-    private Integer bruteforce(List<Instruction> broken) {
+    private static Integer bruteforce(List<Instruction> broken) {
         for (int i = 0; i < broken.size(); i++) {
-            if (broken.get(i).op.equals(ACC)) {
+            if (broken.get(i).operation.equals(ACC)) {
                 continue;
             }
             var program = broken.stream().map(Instruction::copy).collect(Collectors.toList());
@@ -31,15 +26,20 @@ public class HandheldHalting2 extends Solver<List<String>, Integer> {
         throw new IllegalStateException("No result found");
     }
 
-    private Instruction flip(Instruction ins) {
-        switch (ins.op) {
+    private static Instruction flip(Instruction ins) {
+        switch (ins.operation) {
             case JMP:
-                return new Instruction(NOP, ins.val);
+                return new Instruction(NOP, ins.value);
             case NOP:
-                return new Instruction(JMP, ins.val);
+                return new Instruction(JMP, ins.value);
             default:
                 throw new IllegalArgumentException("Instruction has ACC operation");
         }
+    }
+
+    @Override
+    public Integer solve(List<String> input) {
+        return bruteforce(parse(input));
     }
 
 }
