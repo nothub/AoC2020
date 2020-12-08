@@ -2,19 +2,15 @@ package not.hub.aoc2020.day8;
 
 import not.hub.aoc2020.Solver;
 
-import java.util.Collection;
 import java.util.List;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class HandheldHalting1 extends Solver<List<String>, Integer> {
 
-    protected static final Pattern pattern = Pattern.compile("(acc|jmp|nop)\\s([+|-]{1}\\d+)");
-
     protected static List<Instruction> parse(List<String> input) {
-        return input.stream().map(line -> pattern.matcher(line).results().map(result ->
-                new Instruction(Instruction.Operation.valueOf(result.group(1).toUpperCase()), Integer.parseInt(result.group(2)))
-        ).collect(Collectors.toList())).flatMap(Collection::stream).collect(Collectors.toList());
+        return input.stream().map(line -> line.split(" ")).map(result ->
+                new Instruction(Instruction.Operation.valueOf(result[0].toUpperCase()), Integer.parseInt(result[1]))
+        ).collect(Collectors.toList());
     }
 
     protected static Result compute(List<Instruction> program) {
