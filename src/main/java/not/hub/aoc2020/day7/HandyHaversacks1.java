@@ -23,7 +23,7 @@ public class HandyHaversacks1 extends Solver<String, Long> {
         );
     }
 
-    protected static Map<String, Map<String, Integer>> parse(String input) {
+    public static Map<String, Map<String, Integer>> parse(String input) {
         Map<String, Map<String, Integer>> bags = new HashMap<>();
         Arrays.stream(input.replaceAll("bags", "bag").split(LB)).forEach(raw -> {
             Matcher matcher = pattern.matcher(raw);
