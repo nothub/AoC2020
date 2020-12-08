@@ -5,7 +5,7 @@ import not.hub.aoc2020.Solver;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static not.hub.aoc2020.day8.HandheldHalting1.compute;
+import static not.hub.aoc2020.day8.HandheldHalting1.execute;
 import static not.hub.aoc2020.day8.HandheldHalting1.parse;
 import static not.hub.aoc2020.day8.Instruction.Operation.*;
 
@@ -18,7 +18,7 @@ public class HandheldHalting2 extends Solver<List<String>, Integer> {
             }
             var program = broken.stream().map(Instruction::copy).collect(Collectors.toList());
             program.set(i, flip(program.get(i)));
-            Result result = compute(program);
+            Result result = execute(program);
             if (result.halted) {
                 return result.value;
             }

@@ -13,7 +13,7 @@ public class HandheldHalting1 extends Solver<List<String>, Integer> {
         ).collect(Collectors.toList());
     }
 
-    protected static Result compute(List<Instruction> program) {
+    protected static Result execute(List<Instruction> program) {
         var trackables = program.stream().map(ins ->
                 new Trackable(ins, false)
         ).collect(Collectors.toList());
@@ -24,7 +24,7 @@ public class HandheldHalting1 extends Solver<List<String>, Integer> {
             if (trackable.visited) {
                 return new Result(accu, false);
             } else {
-                trackables.set(head, new Trackable(trackable.instruction, true));
+                trackable.visited = true;
             }
             switch (trackable.instruction.operation) {
                 case ACC:
@@ -44,7 +44,7 @@ public class HandheldHalting1 extends Solver<List<String>, Integer> {
 
     @Override
     public Integer solve(List<String> input) {
-        return compute(parse(input)).value;
+        return execute(parse(input)).value;
     }
 
 }
