@@ -6,4 +6,8 @@ public abstract class Solver<I, O> {
         return null;
     }
 
+    public O solve(I input, int option) {
+        return null;
+    }
+
 }

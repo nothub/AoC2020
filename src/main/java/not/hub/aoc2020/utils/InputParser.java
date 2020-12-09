@@ -1,5 +1,6 @@
 package not.hub.aoc2020.utils;
 
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
@@ -10,6 +11,14 @@ public class InputParser {
     public static List<Integer> getIntegerList(String path) {
         try {
             return Files.lines(Paths.get(path)).map(Integer::parseInt).collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new IllegalStateException("Unable to load input file " + path + " - " + e.getMessage(), e);
+        }
+    }
+
+    public static List<BigInteger> getBigIntegerList(String path) {
+        try {
+            return Files.lines(Paths.get(path)).map(BigInteger::new).collect(Collectors.toList());
         } catch (Exception e) {
             throw new IllegalStateException("Unable to load input file " + path + " - " + e.getMessage(), e);
         }
