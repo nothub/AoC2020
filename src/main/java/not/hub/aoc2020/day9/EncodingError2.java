@@ -36,31 +36,30 @@ public class EncodingError2 extends Solver<List<BigInteger>, BigInteger> {
         return result.get();
     }
 
-    private static Set<BigInteger> getRange(List<BigInteger> input, BigInteger number) {
+    public BigInteger bruteforce(List<BigInteger> input, BigInteger part1) {
+        Set<BigInteger> range = null;
         for (int i = 0; i < input.size(); i++) {
             for (int j = i; j < input.size(); j++) {
                 Set<BigInteger> operands = new HashSet<>(input.subList(i, j));
-                if (operands.stream().reduce(BigInteger::add).orElse(BigInteger.ZERO).equals(number)) {
-                    return operands;
+                if (operands.stream().reduce(BigInteger::add).orElse(BigInteger.ZERO).equals(part1)) {
+                    range = operands;
+                    break;
                 }
             }
+            if (range != null) {
+                break;
+            }
         }
-        throw new IllegalStateException("No result found");
-    }
-
-    public BigInteger bruteforce(List<BigInteger> input, int preambleSize) {
-        Set<BigInteger> range = getRange(input, calcNumber(input, preambleSize));
+        if (range == null) {
+            throw new IllegalStateException("No result found");
+        }
         return range.stream().min(BigInteger::compareTo).orElseThrow().add(range.stream().max(BigInteger::compareTo).orElseThrow());
     }
 
     @Override
     public BigInteger solve(List<BigInteger> input, int preambleSize) {
-        BigInteger bruteforce = bruteforce(input, preambleSize);
-        BigInteger optimized = optimized(input, calcNumber(input, preambleSize));
-        if (!bruteforce.equals(optimized)) {
-            throw new IllegalStateException("bruteforce != optimized");
-        }
-        return optimized;
+        // return bruteforce(input, calcNumber(input, preambleSize));
+        return optimized(input, calcNumber(input, preambleSize));
     }
 
     @Override
