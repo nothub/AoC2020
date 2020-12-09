@@ -15,12 +15,14 @@ public class EncodingError2 extends Solver<List<BigInteger>, BigInteger> {
     public BigInteger bruteforce(List<BigInteger> input, BigInteger part1) {
         Set<BigInteger> range = null;
         for (int i = 0; i < input.size(); i++) {
-            BigInteger contiguousSum = BigInteger.ZERO.add(input.get(i));
             Set<BigInteger> contiguousSet = new HashSet<>();
+            // contiguousSet.stream().reduce(BigInteger::add).orElse(BigInteger.ZERO).equals(part1)
+            // needs needs a shitton of time to calculate for a big input, we sum up instead:
+            BigInteger contiguousSum = BigInteger.ZERO.add(input.get(i));
             contiguousSet.add(input.get(i));
             for (int j = i + 1; j < input.size(); j++) {
-                contiguousSum = contiguousSum.add(input.get(j));
                 contiguousSet.add(input.get(j));
+                contiguousSum = contiguousSum.add(input.get(j));
                 if (contiguousSum.equals(part1)) {
                     range = contiguousSet;
                     break;
