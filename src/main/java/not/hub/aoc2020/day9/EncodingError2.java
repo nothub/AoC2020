@@ -58,8 +58,12 @@ public class EncodingError2 extends Solver<List<BigInteger>, BigInteger> {
 
     @Override
     public BigInteger solve(List<BigInteger> input, int preambleSize) {
-        // return bruteforce(input, calcNumber(input, preambleSize));
-        return optimized(input, calcNumber(input, preambleSize));
+        var b = bruteforce(input, calcNumber(input, preambleSize));
+        var o = optimized(input, calcNumber(input, preambleSize));
+        if (!b.equals(o)) {
+            throw new IllegalStateException("Implementation broken!");
+        }
+        return o;
     }
 
     @Override
