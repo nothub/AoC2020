@@ -1,5 +1,6 @@
 package not.hub.aoc2020.day8;
 
+import not.hub.aoc2020.PuzzleException;
 import not.hub.aoc2020.Solver;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class HandheldHalting2 extends Solver<List<String>, Integer> {
                 result.halted
         ).mapToInt(result ->
                 result.val
-        ).findAny().orElseThrow();
+        ).findAny().orElseThrow(() -> new PuzzleException("No result found"));
     }
 
     private static Result executePatched(List<Instruction> program, int i) {

@@ -1,5 +1,6 @@
 package not.hub.aoc2020.day8;
 
+import not.hub.aoc2020.PuzzleException;
 import not.hub.aoc2020.Solver;
 
 import java.util.List;
@@ -35,7 +36,7 @@ public class HandheldHalting1 extends Solver<List<String>, Integer> {
                     head++;
                     break;
                 default:
-                    throw new IllegalArgumentException("Unknown operation: " + ins.op);
+                    throw new PuzzleException("Unknown operation: " + ins.op);
             }
         }
         return new Result(accu, true);

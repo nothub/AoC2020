@@ -1,5 +1,6 @@
 package not.hub.aoc2020.day1;
 
+import not.hub.aoc2020.PuzzleException;
 import not.hub.aoc2020.Solver;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class ReportRepair2 extends Solver<List<Integer>, Integer> {
             }
         }
 
-        throw new IllegalStateException();
+        throw new PuzzleException("No result found");
 
     }
 

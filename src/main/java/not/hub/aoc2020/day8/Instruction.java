@@ -1,5 +1,7 @@
 package not.hub.aoc2020.day8;
 
+import not.hub.aoc2020.PuzzleException;
+
 import static not.hub.aoc2020.day8.Instruction.Operation.JMP;
 import static not.hub.aoc2020.day8.Instruction.Operation.NOP;
 
@@ -23,7 +25,7 @@ class Instruction {
                 op = JMP;
                 break;
             default:
-                throw new IllegalArgumentException("Unable to flip operation: " + op);
+                throw new PuzzleException("Unable to flip operation: " + op);
         }
     }
 
