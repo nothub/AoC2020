@@ -39,6 +39,7 @@ public class EncodingError2 extends Solver<List<BigInteger>, BigInteger> {
     public BigInteger bruteforce(List<BigInteger> input, BigInteger part1) {
         Set<BigInteger> range = null;
         for (int i = 0; i < input.size(); i++) {
+            BigInteger sum = BigInteger.ZERO.add(input.get(i));
             Set<BigInteger> operands = new HashSet<>();
             operands.add(input.get(i));
             for (int j = i; j < input.size(); j++) {
@@ -66,6 +67,8 @@ public class EncodingError2 extends Solver<List<BigInteger>, BigInteger> {
             throw new IllegalStateException("Implementation broken!");
         }
         return o;
+        //return bruteforce(input, calcNumber(input, preambleSize));
+        //return optimized(input, calcNumber(input, preambleSize));
     }
 
     @Override
