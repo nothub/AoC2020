@@ -15,11 +15,11 @@ class Day6Test {
     private static final String input = InputParser.getString("inputs/day6");
 
     @Test
-    @DisplayName("Example")
-    void example() {
+    @DisplayName("Part 1 - Example")
+    void part1_example() {
         int result = new CustomCustoms1().solve(example);
         Assertions.assertEquals(11, result);
-        Logger.info("Example: " + result);
+        Logger.info("Part 1 - Example: " + result);
     }
 
     @Test
@@ -28,6 +28,14 @@ class Day6Test {
         int result = new CustomCustoms1().solve(input);
         Assertions.assertEquals(6768, result);
         Logger.info("Part 1: " + result);
+    }
+
+    @Test
+    @DisplayName("Part 2 - Example")
+    void part2_example() {
+        int result = new CustomCustoms2().solve(example);
+        Assertions.assertEquals(6, result);
+        Logger.info("Part 2 - Example: " + result);
     }
 
     @Test

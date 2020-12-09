@@ -20,11 +20,11 @@ class Day8Test {
     private static final List<String> input = InputParser.getStringList("inputs/day8");
 
     @Test
-    @DisplayName("Part 1 Example")
+    @DisplayName("Part 1 - Example")
     void part1_example() {
         int result = new HandheldHalting1().solve(example);
         Assertions.assertEquals(5, result);
-        Logger.info("Part 1 Example: " + result);
+        Logger.info("Part 1 - Example: " + result);
     }
 
     @Test
@@ -36,11 +36,11 @@ class Day8Test {
     }
 
     @Test
-    @DisplayName("Part 2 Example")
+    @DisplayName("Part 2 - Example")
     void part2_example() {
         int result = new HandheldHalting2().solve(example);
         Assertions.assertEquals(8, result);
-        Logger.info("Part 2 Example: " + result);
+        Logger.info("Part 2 - Example: " + result);
     }
 
     @Test

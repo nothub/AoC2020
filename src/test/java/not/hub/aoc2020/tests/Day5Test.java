@@ -17,11 +17,11 @@ class Day5Test {
     private static final List<String> input = InputParser.getStringList("inputs/day5");
 
     @Test
-    @DisplayName("Example")
-    void example() {
+    @DisplayName("Part 1 - Example")
+    void part1_example() {
         int result = new BinaryBoarding1().solve(example);
         Assertions.assertEquals(820, result);
-        Logger.info("Example: " + result);
+        Logger.info("Part 1 - Example: " + result);
     }
 
     @Test

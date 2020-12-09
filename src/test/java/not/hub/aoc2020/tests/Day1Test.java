@@ -17,11 +17,11 @@ class Day1Test {
     private static final List<Integer> input = InputParser.getIntegerList("inputs/day1");
 
     @Test
-    @DisplayName("Example")
-    void example() {
+    @DisplayName("Part 1 - Example")
+    void part1_example() {
         int result = new ReportRepair1().solve(example);
         Assertions.assertEquals(514579, result);
-        Logger.info("Example: " + result);
+        Logger.info("Part 1 - Example: " + result);
     }
 
     @Test
@@ -30,6 +30,14 @@ class Day1Test {
         int result = new ReportRepair1().solve(input);
         Assertions.assertEquals(713184, result);
         Logger.info("Part 1: " + result);
+    }
+
+    @Test
+    @DisplayName("Part 2 - Example")
+    void part2_example() {
+        int result = new ReportRepair2().solve(example);
+        Assertions.assertEquals(241861950, result);
+        Logger.info("Part 2 - Example: " + result);
     }
 
     @Test

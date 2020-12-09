@@ -17,11 +17,11 @@ class Day3Test {
     private static final List<String> input = InputParser.getStringList("inputs/day3");
 
     @Test
-    @DisplayName("Example")
-    void example() {
+    @DisplayName("Part 1 - Example")
+    void part1_example() {
         int result = new TobogganTrajectory1().solve(example);
         Assertions.assertEquals(7, result);
-        Logger.info("Example: " + result);
+        Logger.info("Part 1 - Example: " + result);
     }
 
     @Test
@@ -30,6 +30,14 @@ class Day3Test {
         int result = new TobogganTrajectory1().solve(input);
         Assertions.assertEquals(254, result);
         Logger.info("Part 1: " + result);
+    }
+
+    @Test
+    @DisplayName("Part 2 - Example")
+    void part2_example() {
+        int result = new TobogganTrajectory2().solve(example);
+        Assertions.assertEquals(336, result);
+        Logger.info("Part 2 - Example: " + result);
     }
 
     @Test

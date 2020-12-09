@@ -16,11 +16,11 @@ class Day7Test {
     private static final String input = InputParser.getString("inputs/day7");
 
     @Test
-    @DisplayName("Part 1 Example")
-    void part1_example() {
+    @DisplayName("Part 1 - Example 1")
+    void part1_example1() {
         long result = new HandyHaversacks1().solve(example1);
         Assertions.assertEquals(4, result);
-        Logger.info("Part 1 Example: " + result);
+        Logger.info("Part 1 - Example 1: " + result);
     }
 
     @Test
@@ -32,19 +32,19 @@ class Day7Test {
     }
 
     @Test
-    @DisplayName("Part 2 Example 1")
+    @DisplayName("Part 2 - Example 1")
     void part2_example1() {
         long result = new HandyHaversacks2().solve(example1);
         Assertions.assertEquals(32, result);
-        Logger.info("Part 2 Example 1: " + result);
+        Logger.info("Part 2 - Example 1: " + result);
     }
 
     @Test
-    @DisplayName("Part 2 Example 2")
+    @DisplayName("Part 2 - Example 2")
     void part2_example2() {
         long result = new HandyHaversacks2().solve(example2);
         Assertions.assertEquals(126, result);
-        Logger.info("Part 2 Example 2: " + result);
+        Logger.info("Part 2 - Example 2: " + result);
     }
 
     @Test
