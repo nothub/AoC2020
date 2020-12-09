@@ -39,8 +39,10 @@ public class EncodingError2 extends Solver<List<BigInteger>, BigInteger> {
     public BigInteger bruteforce(List<BigInteger> input, BigInteger part1) {
         Set<BigInteger> range = null;
         for (int i = 0; i < input.size(); i++) {
+            Set<BigInteger> operands = new HashSet<>();
+            operands.add(input.get(i));
             for (int j = i; j < input.size(); j++) {
-                Set<BigInteger> operands = new HashSet<>(input.subList(i, j));
+                operands.add(input.get(j));
                 if (operands.stream().reduce(BigInteger::add).orElse(BigInteger.ZERO).equals(part1)) {
                     range = operands;
                     break;
